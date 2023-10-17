@@ -27,6 +27,10 @@ class _MyWidgetState extends State<MyApp> {
     setState(() => myDuration = Duration(days: 5));
   }
 
+  void resetTimer() {
+    setState(() => countdownTimer!.cancel);
+  }
+
   void setCountDown() {
     final reduceSecondsBy = 1;
     setState(() {
@@ -79,6 +83,16 @@ class _MyWidgetState extends State<MyApp> {
                   'Stop',
                   style: TextStyle(fontSize: 30),
                 )),
+            ElevatedButton(
+                onPressed: () {
+                  resetTimer();
+                },
+                child: Text(
+                  'Reset',
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ))
           ],
         ),
       ),
