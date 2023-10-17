@@ -68,7 +68,17 @@ class _MyWidgetState extends State<MyApp> {
                 child: Text(
                   'Start',
                   style: TextStyle(fontSize: 30),
-                ))
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  if (countdownTimer == null || countdownTimer!.isActive) {
+                    stopTimer();
+                  }
+                },
+                child: Text(
+                  'Stop',
+                  style: TextStyle(fontSize: 30),
+                )),
           ],
         ),
       ),
