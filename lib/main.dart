@@ -4,11 +4,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyWidgetState();
@@ -24,11 +26,12 @@ class _MyWidgetState extends State<MyApp> {
   }
 
   void stopTimer() {
-    setState(() => myDuration = Duration(days: 5));
+    setState(() => countdownTimer!.cancel());
   }
 
   void resetTimer() {
-    setState(() => countdownTimer!.cancel);
+    stopTimer();
+    setState(() => myDuration = Duration(days: 5));
   }
 
   void setCountDown() {
